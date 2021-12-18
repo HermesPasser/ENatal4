@@ -2,7 +2,7 @@
  * =================================================================
  * Desafio de Natal
  * 
- * NÌvel: F·cil
+ * N√≠vel: F√°cil
  * 
  * Objetivo:
  * Filtrar o lote de presentes, permitindo somente aqueles possuem
@@ -14,7 +14,7 @@
 #include <locale.h>
 #include <malloc.h>
 
-#include "gifts.h";
+#include "gifts.h"
 
 const unsigned int nGiftCount = 5;
 
@@ -34,7 +34,7 @@ void WriteList(struct GIFT* lpGifts)
 	}
 	else
 	{
-		printf("N„o h· presentes na lista.");
+		printf("N√£o h√° presentes na lista.");
 	}
 }
 
@@ -50,7 +50,7 @@ int main(int argv, char** argc)
 
 	/*
 	 * ====================================================
-	 * Seu cÛdigo comeÁa aqui
+	 * Seu c√≥digo come√ßa aqui
 	 * ====================================================
 	 */
 

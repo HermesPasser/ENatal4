@@ -1,6 +1,11 @@
 #pragma once
-#define MAX_GIFTS 5
 #include <stdio.h>
+
+#ifndef memcpy_s
+#define memcpy_s memcpy
+#endif
+
+#define MAX_GIFTS 5
 
 // Objeto que representa o presente
 struct GIFT {
@@ -18,11 +23,11 @@ size_t ClampSize(size_t nSize)
 void ListGifts(struct GIFT* lpGifts, size_t nSize)
 {
 	const char* lpchNames[MAX_GIFTS] = {
-		"Avi„o de Controle Remoto",
+		"Avi√£o de Controle Remoto",
 		"Boneca de Pano",
 		"Tecladinho",
 		"Bola Quadrada",
-		"Jogo de Ch·zinho"
+		"Jogo de Ch√°zinho"
 	};
 	const unsigned int lpnWeights[MAX_GIFTS] = {
 		200, 100, 350, 50, 250
