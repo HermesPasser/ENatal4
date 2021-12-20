@@ -76,6 +76,14 @@ void print_gifts() {
 		printf("%s %d %s\n", data[i].name, data[i].age, data[i].gift);
 }
 
+void free_gifts() {
+	for (int i = 0; i < NUM_GIFTS; ++i) {
+		free(data[i].name);
+		free(data[i].gift);
+	}
+}
+
+
 int main(int argv, char** argc)
 {
 	setlocale(LC_ALL, "portuguese");
@@ -93,7 +101,8 @@ int main(int argv, char** argc)
 	parse_gifts("criancas.csv");
 	sort_gifts();
 	print_gifts();
-
+	free_gifts();
+	
 	puts("\n-----------------------------------\n");
 	return 0;
 }
