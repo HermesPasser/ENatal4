@@ -13,8 +13,9 @@
 #include <stdio.h>
 #include <locale.h>
 
+#define NUM_CHILDREN 12
 
-const char* lpchChildren[12] = {
+const char* lpchChildren[NUM_CHILDREN] = {
 	"Yoshinho", "Aikinha", "Pinsher", "Dovinha", "Nalfito",
 	"Drakito", "Simãozinho", "Brunito", "Caiozito", "Nolanino",
 	"Douglinhas", "Cenourino"
@@ -34,6 +35,9 @@ int main(int argv, char** argc)
 	 * Seu código começa aqui
 	 * ====================================
 	 */
+	 
+	 for (int i = 0; i < NUM_CHILDREN; ++i)
+		 printf("%s\n", lpchChildren[i]);
 
 	puts("\n-----------------------------------\n");
 	return 0;
