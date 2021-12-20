@@ -72,8 +72,9 @@ void sort_gifts() {
 }
 
 void print_gifts() {
+	puts("Nome: \t\tIdade: \tPresente: \n");
 	for (int i = 0; i < NUM_GIFTS; ++i) 
-		printf("%s %d %s\n", data[i].name, data[i].age, data[i].gift);
+		printf("%s \t %d \t %s\n", data[i].name, data[i].age, data[i].gift);
 }
 
 void free_gifts() {
