@@ -41,6 +41,8 @@ void Init()
 
 int CreateBatches(GIFT** batches, GIFT* base)
 {
+	BOOL packed[9] = { FALSE };
+
 	if (batches)
 	{
 		for (register size_t i = 0; i < LIST_SIZE / BATCH_SIZE; ++i)
@@ -50,7 +52,11 @@ int CreateBatches(GIFT** batches, GIFT* base)
 			{
 				for (register size_t j = 0; j < BATCH_SIZE; ++j)
 				{
-					batches[i][j] = base[rand() % LIST_SIZE];
+					size_t num;
+					while(packed[num = rand() % LIST_SIZE]);
+					
+					batches[i][j] = base[num];
+					packed[num] = TRUE;
 				}
 			}
 		}
