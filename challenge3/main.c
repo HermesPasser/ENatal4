@@ -2,19 +2,73 @@
  * =================================================================
  * Desafio de Natal
  *
- * Nível: Intermediário
+ * Nï¿½vel: Intermediï¿½rio
  *
  * Objetivo:
- * Ler o CSV com a lista de todas as crianças contendo seu nome,
+ * Ler o CSV com a lista de todas as crianï¿½as contendo seu nome,
  * idade e o presente pedido para este Natal.
- * Após isso, o sistema deve organizar a lista com a idade
- * das crianças, começando da mais nova até a mais velha.
+ * Apï¿½s isso, o sistema deve organizar a lista com a idade
+ * das crianï¿½as, comeï¿½ando da mais nova atï¿½ a mais velha.
  * =================================================================
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
+#include <string.h>
+#include <unistd.h>
 
+typedef struct GiftData {
+	char* name;
+	char* gift;
+	size_t age;
+} GiftData;
+
+#define NUM_GIFTS 5
+GiftData data[NUM_GIFTS];
+
+void parse_gifts(char* filepath) {
+	FILE* fp = fopen(filepath, "r");
+	if (!fp) {
+		printf("NÃ£o foi possÃ­vel abrir arquivo");
+		exit(1);
+	}
+
+	size_t i = 0;
+	size_t len = 0;
+	char* line = NULL;
+	int read = 0;
+
+	while ((read = getline(&line, &len, fp)) != -1) {
+		if (line[0] == '\0')
+			break;
+		
+		// GiftData item;
+
+		char *tok = strtok(line, ",");
+		printf("%s\n", tok);
+		strcpy(data[i].name, tok);
+
+		data[i].age = atoi(strtok(NULL, ","));
+		strcpy(data[i].gift, strtok(NULL, ","));
+		
+		// data[i] = item;
+		printf("-----------");
+		printf("??.%d\n",  data[i].gift);
+		i++;
+
+	}  
+
+	fclose(fp);
+}
+
+void sort_gifts() {
+
+	// for (int i = 0; i < NUM_GIFTS; ++i)
+	// 	for (int j = i; j < NUM_GIFTS; ++j) {
+	// 		printf("%s\n", data[i].name);
+	// 	}
+}
 
 int main(int argv, char** argc)
 {
@@ -25,11 +79,15 @@ int main(int argv, char** argc)
 	puts("Lista de Pedidos:\n");
 
 	/*
-	 * ====================================
-	 * Seu código começa aqui
-	 * ====================================
-	 */
-
+	* ====================================
+	* Seu cï¿½digo comeï¿½a aqui
+	* ====================================
+	*/
+	// data = malloc(NUM_GIFTS * sizeof(GiftData));
+	parse_gifts("criancas.csv");
+	sort_gifts();
+		// printf("%s %d %s\n", item.name, item.age, item.gift);
+	
 	puts("\n-----------------------------------\n");
 	return 0;
 }
