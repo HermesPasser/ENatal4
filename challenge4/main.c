@@ -39,9 +39,19 @@ void Init()
 	puts("Pronto!\n");
 }
 
+GIFT Pop(GIFT* gifts, size_t index, size_t* size) {
+	GIFT to_remove = gifts[index];
+	GIFT last = gifts[*size -1];
+
+	gifts[index] = last;
+	*size = *size - 1;
+	gifts = realloc(gifts, *size * sizeof(GIFT));
+	return to_remove;
+}
+
 int CreateBatches(GIFT** batches, GIFT* base)
 {
-	BOOL packed[9] = { FALSE };
+	size_t gift_count = LIST_SIZE;
 
 	if (batches)
 	{
@@ -52,11 +62,8 @@ int CreateBatches(GIFT** batches, GIFT* base)
 			{
 				for (register size_t j = 0; j < BATCH_SIZE; ++j)
 				{
-					size_t num;
-					while(packed[num = rand() % LIST_SIZE]);
-					
-					batches[i][j] = base[num];
-					packed[num] = TRUE;
+					size_t num = rand() % gift_count;
+					batches[i][j] = Pop(base, num, &gift_count);
 				}
 			}
 		}
