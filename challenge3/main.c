@@ -72,7 +72,7 @@ void sort_gifts() {
 }
 
 void print_gifts() {
-	for (int i = 0; i < NUM_GIFTS - 1; ++i) 
+	for (int i = 0; i < NUM_GIFTS; ++i) 
 		printf("%s %d %s\n", data[i].name, data[i].age, data[i].gift);
 }
 
